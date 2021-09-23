@@ -1,1 +1,43 @@
-# Template do cloudformation para provisionar uma instância EC2 com jenkins
+# Versão do template - não alterar
+AWSTemplateFormatVersion: "2010-09-09"
+
+# Descrição que será utilizada na stack
+Description:
+  Provisiona maquina EC2 com jenkins
+
+# Recursos que serão provisionados
+Resources:  
+  # Security Group para provisionar EC2
+  SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties: 
+      GroupDescription: Porta 22 SSH
+      GroupName: ec2-jenkins-sg
+      SecurityGroupIngress: 
+        - CidrIp: 0.0.0.0/0
+          FromPort: 22
+          ToPort: 22
+          IpProtocol: tcp
+  # Provisionar EC2
+  EC2:
+    Type: AWS::EC2::Instance
+    Properties:        
+      ImageId: ami-0dc2d3e4c0f9ebd18
+      InstanceType: t2.micro
+      KeyName: vockey
+      SecurityGroupIds:
+        - !Ref SecurityGroup
+      IamInstanceProfile: LabInstanceProfile
+      Tags:
+        - Key: Name
+          Value: ec2-jenkins
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -xe
+          wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+          rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+          yum upgrade -y
+          amazon-linux-extras install epel -y
+          yum install -y jenkins java-1.8.0-openjdk
+          sudo systemctl daemon-reload
+          sudo systemctl start jenkins
