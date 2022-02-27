@@ -5,13 +5,17 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description:
   Provisiona maquina EC2 com jenkins
 
+Parameters:
+  key:
+    Type: String  
+
 # Recursos que serão provisionados
 Resources:  
   # Security Group para provisionar EC2
   SecurityGroup:
     Type: AWS::EC2::SecurityGroup
     Properties: 
-      GroupDescription: Porta 22 SSH
+      GroupDescription: Porta 22
       GroupName: ec2-jenkins-sg
       SecurityGroupIngress: 
         - CidrIp: 0.0.0.0/0
@@ -36,7 +40,7 @@ Resources:
     Properties:        
       ImageId: ami-0dc2d3e4c0f9ebd18
       InstanceType: t2.micro
-      KeyName: vockey
+      KeyName: !Sub ${key}
       SecurityGroupIds:
         - !Ref SecurityGroup
       IamInstanceProfile: LabInstanceProfile
