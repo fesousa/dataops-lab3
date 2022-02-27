@@ -152,7 +152,7 @@ Resources:
   
   x.	Aguarde o pipeline terminar a execução
 
-  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem16.png" height='250'/>
+  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem16.png" height='330'/>
 
 
 7.	O pipeline criado utiliza o arquivo ec2-jenkins.yaml que criamos no VSCode e fizemos o push o GitHub para provisionar os recursos do template
@@ -260,5 +260,5 @@ Resources:
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2022-02-27 20:14:11
+Last update: 2022-02-27 20:15:53
 </div>
