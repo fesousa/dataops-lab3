@@ -1,0 +1,64 @@
+# Versão do template - não alterar
+AWSTemplateFormatVersion: "2010-09-09"
+
+# Descrição que será utilizada na stack
+Description:
+  Provisiona maquina EC2 com jenkins
+
+# parâmetro para chave de acesso ao EC2
+Parameters:
+  key:
+    Type: String  
+
+# Recursos que serão provisionados
+Resources:  
+  # Security Group para provisionar EC2
+  SecurityGroup:
+    Type: AWS::EC2::SecurityGroup
+    Properties: 
+      GroupDescription: Porta 22
+      GroupName: ec2-jenkins-sg
+      SecurityGroupIngress: 
+        - CidrIp: 0.0.0.0/0
+          FromPort: 22
+          ToPort: 22
+          IpProtocol: tcp
+        ##### NOVO - INÍCIO #####
+        - CidrIp: 0.0.0.0/0
+          FromPort: 8080
+          ToPort: 8080
+          IpProtocol: tcp
+        ##### NOVO - FIM #####
+  ##### NOVO - INÍCIO #####
+  #provisionar IP Elástico
+  IPAddress:
+    Type: AWS::EC2::EIP
+  IPAssoc:
+    Type: AWS::EC2::EIPAssociation
+    Properties:
+      InstanceId: !Ref 'EC2'
+      EIP: !Ref 'IPAddress'
+  ##### NOVO - FIM #####
+  # Provisionar EC2
+  EC2:
+    Type: AWS::EC2::Instance
+    Properties:        
+      ImageId: ami-0dc2d3e4c0f9ebd18
+      InstanceType: t2.micro
+      KeyName: !Sub ${key}
+      SecurityGroupIds:
+        - !Ref SecurityGroup
+      IamInstanceProfile: LabInstanceProfile
+      Tags:
+        - Key: Name
+          Value: ec2-jenkins
+      UserData:
+        Fn::Base64: !Sub |
+          #!/bin/bash -xe
+          wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
+          rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+          yum upgrade -y
+          amazon-linux-extras install epel -y
+          yum install -y jenkins java-1.8.0-openjdk
+          sudo systemctl daemon-reload
+          sudo systemctl start jenkins
