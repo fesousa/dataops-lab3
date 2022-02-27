@@ -102,7 +102,7 @@ ${code/ec2-jenkins-p1.yaml}
   
   x.	Aguarde o pipeline terminar a execução
 
-  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem16.png" height='250'/>
+  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem16.png" height='330'/>
 
 
 7.	O pipeline criado utiliza o arquivo ec2-jenkins.yaml que criamos no VSCode e fizemos o push o GitHub para provisionar os recursos do template
