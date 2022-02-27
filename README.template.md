@@ -50,23 +50,23 @@ ${code/ec2-jenkins-p1.yaml}
 
 <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem2.png" height='330'/>
  
-6.	Clique em  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem3.png" height='30'/>             e depois faça a seguinte configuração:
+6.	Clique em  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem3.png" height='20'/>             e depois faça a seguinte configuração:
 
   a.	"Nome do Pipeline": dataops-ec2-pipeline
 
-  b.	"Função de serviço": <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem4.png" height='30'/>
+  b.	"Função de serviço": <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem4.png" height='20'/>
 
-  c.	"ARN da função": clique no campo de texto e escolha <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem5.png" height='30'/>. O número é o ID da sua conta e será diferente 
+  c.	"ARN da função": clique no campo de texto e escolha <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem5.png" height='20'/>. O número é o ID da sua conta e será diferente 
 
-  d.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem6.png" height='30'/>
+  d.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem6.png" height='20'/>
 
   e.	"Provedor de origem": GitHub (versão 1)	
 
-  f.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem7.png" height='30'/>
+  f.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem7.png" height='20'/>
 
-  g.	Se já estiver autenticado no GitHub basca clicar em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem8.png" height='30'/> na janela aberta
+  g.	Se já estiver autenticado no GitHub basca clicar em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem8.png" height='20'/> na janela aberta
 
-  h.	Se não estiver autenticado, faça o login no GitHub na janela aberta e depois clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem9.png" height='30'/>
+  h.	Se não estiver autenticado, faça o login no GitHub na janela aberta e depois clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem9.png" height='20'/>
 
   i.	"Nome do repositório": dataops-lab3 (ou o repositório criado em aula)
   
@@ -74,11 +74,11 @@ ${code/ec2-jenkins-p1.yaml}
 
   k.	"Opções de detecção de alterações": Webhooks do GitHub (recomendado)
 
-  l.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem10.png" height='30'/>
+  l.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem10.png" height='20'/>
 
-  m.	Em "Adicionar etapa de compilação" clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem11.png" height='30'/>
+  m.	Em "Adicionar etapa de compilação" clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem11.png" height='20'/>
   
-  n.	No popup, clique em  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem12.png" height='30'/>
+  n.	No popup, clique em  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem12.png" height='20'/>
 
   o.	"Provedor da implantação": AWS CloudFormation
 
@@ -96,9 +96,9 @@ ${code/ec2-jenkins-p1.yaml}
 
   <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem13.png" height='200'/>
  
-  v.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem14.png" height='30'/>
+  v.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem14.png" height='20'/>
 
-  w.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem15.png" height='30'/>
+  w.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem15.png" height='20'/>
   
   x.	Aguarde o pipeline terminar a execução
 
@@ -115,7 +115,7 @@ ${code/ec2-jenkins-p1.yaml}
 
   a.	No painel do EC2, selecione a instância que foi criada clicando no checkbox
 
-  b.	Abaixo, em "Detalhes", copie o IP da instância clicando em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem17.png" height='30'/> abaixo de "Endereço IPv4 público" 
+  b.	Abaixo, em "Detalhes", copie o IP da instância clicando em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem17.png" height='20'/> abaixo de "Endereço IPv4 público" 
   
   c.	Abra uma nova do navegador, cole o IP copiado e complete com a porta 8080. Pressione "Enter" para abrir o Jenkins
   
