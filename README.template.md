@@ -92,7 +92,7 @@ ${ec2-jenkins-p1.yaml}
 
   t.	"Nome da função": selecione LabRole
 
-  u.	Abra a opção Avançado e na caixa de texto coloque { "key": "vockey" }
+  u.	Abra a opção Avançado e na caixa de texto coloque { "key": "vockey", "iamprofile": "LabInstanceProfile" }
 
   <img src="https://raw.github.com/fesousa/dataops-lab1/master/images/Imagem13.png" height='200'/>
  

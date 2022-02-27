@@ -8,7 +8,9 @@ Description:
 # parâmetro para chave de acesso ao EC2
 Parameters:
   key:
-    Type: String  
+    Type: String
+  iamprofile:
+    Type: String
 
 # Recursos que serão provisionados
 Resources:  
@@ -32,7 +34,7 @@ Resources:
       KeyName: !Sub ${key}
       SecurityGroupIds:
         - !Ref SecurityGroup
-      IamInstanceProfile: LabInstanceProfile
+      IamInstanceProfile: !Sub ${iamprofile}
       Tags:
         - Key: Name
           Value: ec2-jenkins
