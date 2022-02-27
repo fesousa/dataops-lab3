@@ -24,19 +24,7 @@ Resources:
         - CidrIp: 0.0.0.0/0
           FromPort: 22
           ToPort: 22
-          IpProtocol: tcp
-        - CidrIp: 0.0.0.0/0
-          FromPort: 8080
-          ToPort: 8080
-          IpProtocol: tcp
-  #provisionar IP Elástico
-  IPAddress:
-    Type: AWS::EC2::EIP
-  IPAssoc:
-    Type: AWS::EC2::EIPAssociation
-    Properties:
-      InstanceId: !Ref 'EC2'
-      EIP: !Ref 'IPAddress'
+          IpProtocol: tcp  
   # Provisionar EC2
   EC2:
     Type: AWS::EC2::Instance

@@ -10,7 +10,7 @@ Parameters:
   key:
     Type: String
   iamprofile:
-    Type: String
+    Type: String  
 
 # Recursos que serão provisionados
 Resources:  
@@ -25,10 +25,13 @@ Resources:
           FromPort: 22
           ToPort: 22
           IpProtocol: tcp
+        ##### NOVO - INÍCIO #####
         - CidrIp: 0.0.0.0/0
           FromPort: 8080
           ToPort: 8080
           IpProtocol: tcp
+        ##### NOVO - FIM #####
+  ##### NOVO - INÍCIO #####
   #provisionar IP Elástico
   IPAddress:
     Type: AWS::EC2::EIP
@@ -37,6 +40,7 @@ Resources:
     Properties:
       InstanceId: !Ref 'EC2'
       EIP: !Ref 'IPAddress'
+  ##### NOVO - FIM #####
   # Provisionar EC2
   EC2:
     Type: AWS::EC2::Instance
