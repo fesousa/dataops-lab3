@@ -98,7 +98,7 @@ Resources:
 
 5.	No console AWS, procure e abra o serviço CodePipeline
 
-<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem2.png" height='330'/>
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem2.png" height='200'/>
  
 6.	Clique em  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem3.png" height='20'/>             e depois faça a seguinte configuração:
 
@@ -144,7 +144,7 @@ Resources:
 
   u.	Abra a opção Avançado e na caixa de texto coloque { "key": "vockey", "iamprofile": "LabInstanceProfile" }
 
-  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem13.png" height='200'/>
+  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem13.png" height='150'/>
  
   v.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem14.png" height='20'/>
 
@@ -152,20 +152,20 @@ Resources:
   
   x.	Aguarde o pipeline terminar a execução
 
-  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem16.png" height='150'/>
+  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem16.png" height='250'/>
 
 
 7.	O pipeline criado utiliza o arquivo ec2-jenkins.yaml que criamos no VSCode e fizemos o push o GitHub para provisionar os recursos do template
 
 8.	Acesse o Serviço do EC2 para ver a instância criada
  
-<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem17.png" height='150'/>
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem17.png" height='120'/>
 
 9.	Verifique se a serviço do Jenkins está funcionando
 
   a.	No painel do EC2, selecione a instância que foi criada clicando no checkbox
 
-  b.	Abaixo, em "Detalhes", copie o IP da instância clicando em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem17.png" height='20'/> abaixo de "Endereço IPv4 público" 
+  b.	Abaixo, em "Detalhes", copie o IP da instância clicando em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem18.png" height='18'/> abaixo de "Endereço IPv4 público" 
   
   c.	Abra uma nova do navegador, cole o IP copiado e complete com a porta 8080. Pressione "Enter" para abrir o Jenkins
   
@@ -260,5 +260,5 @@ Resources:
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2022-02-27 20:12:01
+Last update: 2022-02-27 20:14:11
 </div>
