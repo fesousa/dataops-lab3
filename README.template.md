@@ -37,7 +37,7 @@ As instruções do laboratório estão em português. Para alterar o idioma, pro
 
 
 ```yaml
-${ec2-jenkins-p1.yaml}
+${code/ec2-jenkins-p1.yaml}
 ```
 
 4.	Envie o código para seu repositório do Github da forma como fizemos em aula
@@ -128,7 +128,7 @@ ${ec2-jenkins-p1.yaml}
 11.	Coloque uma nova regra de entrada na propriedade "SecurityGroupIngress" do Securi-tyGroup para possibilitar a conexão via HTTP na porta 8080, conforme exemplo abaixo (2 trechos entre ##### NOVO - INÍCIO ##### e ##### NOVO - FIM #####). Vamos aproveitar e criar um IP Elástico para a instância, assim quando a ins-tância for reiniciada o IP não vai mudar
 
 ```yaml
-${ec2-jenkins-p2.yaml}
+${code/ec2-jenkins-p2.yaml}
 ```
 
 12.	Faça o push da atualização para o repositório do GitHub como feito anteriormente para atualizar o arquivo no repositório
