@@ -5,6 +5,7 @@ AWSTemplateFormatVersion: "2010-09-09"
 Description:
   Provisiona maquina EC2 com jenkins
 
+# parâmetro para chave de acesso ao EC2
 Parameters:
   key:
     Type: String  
