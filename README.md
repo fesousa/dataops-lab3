@@ -2,7 +2,7 @@
 
 GitHub e CodePipeline
 
-Controlar versôes com GitHub e implantar utilizando CodePipeline e CloudFormation para criar uma instância EC2 com Jenkins.
+Controlar versões com GitHub e implantar utilizando CodePipeline e CloudFormation para criar uma instância EC2 com Jenkins.
 
 As instruções do laboratório estão em português. Para alterar o idioma, procure a opção na barra inferior do console AWS.
 
@@ -260,5 +260,5 @@ Resources:
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2022-02-27 20:02:55
+Last update: 2022-02-27 20:08:06
 </div>
