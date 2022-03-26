@@ -140,6 +140,7 @@ ${code/ec2-jenkins-p2.yaml}
 14.	Espere a finalização e tente acessar o Jenkins novamente pelo navegador. O IP continua o mesmo. O serviço deve funcionar
 
 
+
 <div class="footer">
     &copy; 2022 Fernando Sousa
     <br/>
