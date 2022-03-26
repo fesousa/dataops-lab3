@@ -256,9 +256,10 @@ Resources:
 14.	Espere a finalização e tente acessar o Jenkins novamente pelo navegador. O IP continua o mesmo. O serviço deve funcionar
 
 
+
 <div class="footer">
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2022-03-26 20:22:06
+Last update: 2022-03-26 20:25:11
 </div>
