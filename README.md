@@ -80,12 +80,13 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
+          yum update –y
           wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
           rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
           yum upgrade -y
-          amazon-linux-extras install epel -y
-          yum install -y jenkins java-1.8.0-openjdk
-          sudo systemctl daemon-reload
+          amazon-linux-extras install java-openjdk11 -y
+          sudo yum install jenkins -y
+          sudo systemctl enable jenkins
           sudo systemctl start jenkins
 
 ```
@@ -237,12 +238,13 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
+          yum update –y
           wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
           rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
           yum upgrade -y
-          amazon-linux-extras install epel -y
-          yum install -y jenkins java-1.8.0-openjdk
-          sudo systemctl daemon-reload
+          amazon-linux-extras install java-openjdk11 -y
+          sudo yum install jenkins -y
+          sudo systemctl enable jenkins
           sudo systemctl start jenkins
 
 ```
@@ -261,5 +263,5 @@ Resources:
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2022-03-26 20:25:11
+Last update: 2022-03-26 20:28:09
 </div>
