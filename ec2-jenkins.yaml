@@ -53,11 +53,11 @@ Resources:
       UserData:
         Fn::Base64: !Sub |
           #!/bin/bash -xe
+          yum update –y
           wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
           rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
           yum upgrade -y
-          amazon-linux-extras install epel -y
-          yum install -y fontconfig java-11-openjdk
-          yum install -y jenkins
-          sudo systemctl daemon-reload
+          amazon-linux-extras install java-openjdk11 -y
+          sudo yum install jenkins -y
+          sudo systemctl enable jenkins
           sudo systemctl start jenkins
