@@ -44,7 +44,7 @@ ${code/ec2-jenkins-p1.yaml}
 
   a.	Execute os comandos add, commit e push na branch develop
 
-  b.	No Github faça o pull request e junte (merge) na branch master
+  b.	No Github faça o pull request e junte (merge) na branch main
 
 5.	No console AWS, procure e abra o serviço CodePipeline
 
@@ -70,7 +70,7 @@ ${code/ec2-jenkins-p1.yaml}
 
   i.	"Nome do repositório": dataops-lab3 (ou o repositório criado em aula)
   
-  j.	"Nome da ramificação": master
+  j.	"Nome da ramificação": main
 
   k.	"Opções de detecção de alterações": Webhooks do GitHub (recomendado)
 
