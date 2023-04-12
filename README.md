@@ -95,7 +95,7 @@ Resources:
 
   a.	Execute os comandos add, commit e push na branch develop
 
-  b.	No Github faça o pull request e junte (merge) na branch master
+  b.	No Github faça o pull request e junte (merge) na branch main
 
 5.	No console AWS, procure e abra o serviço CodePipeline
 
@@ -121,7 +121,7 @@ Resources:
 
   i.	"Nome do repositório": dataops-lab3 (ou o repositório criado em aula)
   
-  j.	"Nome da ramificação": master
+  j.	"Nome da ramificação": main
 
   k.	"Opções de detecção de alterações": Webhooks do GitHub (recomendado)
 
@@ -263,5 +263,5 @@ Resources:
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2022-03-26 20:28:09
+Last update: 2022-08-26 23:20:05
 </div>
