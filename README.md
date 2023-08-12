@@ -117,17 +117,17 @@ Para o github fazer o deploy no CloudFormation é necessário cinfigurar as chav
 
 6. Clique no botão `New repository secret`
 
-  6.1. Em `Name`, coloque `AWS_ACCESS_KEY_ID`
+    6.1. Em `Name`, coloque `AWS_ACCESS_KEY_ID`
 
-  6.2. Em `Secret` coloque o valor do campo `aws_access_key_id` que está no AWS Academy (veja passos 1 e 2 dessas seção)
+    6.2. Em `Secret` coloque o valor do campo `aws_access_key_id` que está no AWS Academy (veja passos 1 e 2 dessas seção)
 
-  6.3. Clique em `Add secret`
+    6.3. Clique em `Add secret`
 
 7. Faça o mesmo para os outros dois campos:
 
-  7.1. Name: `AWS_SECRET_ACCESS_KEY`;  Secret: valor de `aws_secret_access_key` no AWS Academy
+    7.1. Name: `AWS_SECRET_ACCESS_KEY`;  Secret: valor de `aws_secret_access_key` no AWS Academy
 
-  7.2. Name: `AWS_SESSION_TOKEN`;  Secret: valor de `aws_session_token` no AWS Academy
+    7.2. Name: `AWS_SESSION_TOKEN`;  Secret: valor de `aws_session_token` no AWS Academy
 
 Você deve ver o seguinte resultado no Github
 
@@ -308,5 +308,5 @@ Resources:
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2023-08-12 21:20:21
+Last update: 2023-08-12 21:22:18
 </div>
