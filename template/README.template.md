@@ -29,13 +29,13 @@ As instruções do laboratório estão em português. Para alterar o idioma, pro
 
 4.	No template, provisione um Security Group que possibilita a conexão por SSH na instância EC2 (porta 22) e uma instância EC2 com as seguintes características (código a seguir):
 
-  a.	Nome: ec2-jenkins
+    a.	Nome: ec2-jenkins
 
-  b.	Imagem: Amazon Linux 2 (ami-0dc2d3e4c0f9ebd18)
+    b.	Imagem: Amazon Linux 2 (ami-0dc2d3e4c0f9ebd18)
 
-  c.	Tipo de instância: t2.micro
+    c.	Tipo de instância: t2.micro
 
-  d.	User data: bash script para instalar e iniciar o Jenkins
+    d.	User data: bash script para instalar e iniciar o Jenkins
 
 
 ```yaml
@@ -56,7 +56,7 @@ Para o github fazer o deploy no CloudFormation é necessário cinfigurar as chav
 
 3. Acesse o Github, crie uma conta (se ainda não tiver) e crie um repositório chamadoo `dataops-lab3`
 
-  * Veja o material de aula para revisar como criar uma conta no Github e como criar o repositório
+    * Veja o material de aula para revisar como criar uma conta no Github e como criar o repositório
 
 4. Abra o repositório `dataops-lab3` no Github e acesse a aba `Settings`
 
@@ -113,9 +113,9 @@ ${code/actions.yml}
 
 6. Envie o código para seu repositório do Github da forma como fizemos em aula
 
-  a.	Execute os comandos add, commit e push na branch develop
+    a.	Execute os comandos add, commit e push na branch develop
 
-  b.	No Github faça o pull request e junte (merge) na branch main
+    b.	No Github faça o pull request e junte (merge) na branch main
 
 **OBS:** Será solicitado o usuário e senha do github. O usuário é o seu username definido quando criou a conta. A senha deve ser um personal access token. Veja como criar aqui: [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). Verifique se está criando o `Tokens (classic)`. Pode colocar todas as permissões. Guarde este token para utilizar posteriormente em outros laboratórios.
 
