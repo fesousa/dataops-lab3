@@ -99,11 +99,11 @@ Para o github fazer o deploy no CloudFormation é necessário cinfigurar as chav
 
 1.  Na tela de iniciar o laborátio no AWS Academy, clique no botão `AWS Details`
 
-<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem19.png" height='200'/>
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem19.png" width='100%'/>
 
 2. Clique no botão `Show` para ver as credenciais de acesso. Elas serão utilizadas no github
 
-<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem20.png" height='200'/>
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem20.png" width='100%'/>
 
 3. Acesse o Github, crie uma conta (se ainda não tiver) e crie um repositório chamadoo `dataops-lab3`
 
@@ -111,7 +111,7 @@ Para o github fazer o deploy no CloudFormation é necessário cinfigurar as chav
 
 4. Abra o repositório `dataops-lab3` no Github e acesse a aba `Settings`
 
-<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem21.png" height='200'/>
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem21.png" width='100%'/>
 
 5. Clique em `Secrets and variables` e depois em `Actions` no menu lateral esquerdo
 
@@ -132,7 +132,7 @@ Para o github fazer o deploy no CloudFormation é necessário cinfigurar as chav
 Você deve ver o seguinte resultado no Github
 
 
-<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem22.png" height='200'/>
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem22.png" width='100%'/>
 
 
 **IMPORTANTE**
@@ -183,7 +183,7 @@ jobs:
 
 ```
 
-<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem23.png" height='200'/>
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem23.png" width='100%'/>
 
 
 5. Pelo terminal do Cloud9, vincule a pasta `lab3` ao repositório `dataops-lab3`. Revise o material de aula para instruções de como fazer.
@@ -200,7 +200,7 @@ jobs:
 
 7. Ao fazer o pull request e juntar na branch `main`, a `action` configurada será executada. Você pode acompanhar a execução acessando a aba `Actions` no repositório do Github. Quano o pipeline terminar com sucesso, você verá a seguinte tela:
 
-<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem24.png" height='200'/>
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem24.png"width='100%'/>
 
 
 8.	Acesse o Serviço do EC2 para ver a instância criada
@@ -308,5 +308,5 @@ Resources:
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2023-08-12 21:18:23
+Last update: 2023-08-12 21:20:21
 </div>
