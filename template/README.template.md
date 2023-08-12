@@ -130,15 +130,15 @@ ${code/actions.yml}
 
 9.	Verifique se a serviço do Jenkins está funcionando
 
-  a.	No painel do EC2, selecione a instância que foi criada clicando no checkbox
+    a.	No painel do EC2, selecione a instância que foi criada clicando no checkbox
 
-  b.	Abaixo, em "Detalhes", copie o IP da instância clicando em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem18.png" height='18'/> abaixo de "Endereço IPv4 público" 
+    b.	Abaixo, em "Detalhes", copie o IP da instância clicando em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem18.png" height='18'/> abaixo de "Endereço IPv4 público" 
   
-  c.	Abra uma nova do navegador, cole o IP copiado e complete com a porta 8080. Pressione "Enter" para abrir o Jenkins
+    c.	Abra uma nova do navegador, cole o IP copiado e complete com a porta 8080. Pressione "Enter" para abrir o Jenkins
   
   Por exemplo: 12.345.67.890:8080
 
-  d.	A instância não responde. É preciso adicionar a regra de entrada no Security Group para possibilitar o acesso a porta 8080
+    d.	A instância não responde. É preciso adicionar a regra de entrada no Security Group para possibilitar o acesso a porta 8080
 
 10.	Volte ao arquivo "ec2-jenkins.yaml" do seu projeto no Cloud9
 
