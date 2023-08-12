@@ -10,7 +10,7 @@ As instruções do laboratório estão em português. Para alterar o idioma, pro
 ## Objetivos
 
 * Utilização básica dos comandos git para clonar o repositório, enviar e atualizar arquivos
-* Utilizar CodePipeline para provisionar EC2 utilizando entrega contínua (CD)
+* Utilizar Github Actions para provisionar EC2 utilizando entrega contínua (CD)
 * Configurar uma instância EC2 com Jenkins para utilizar com CI/CD
 
 
@@ -19,13 +19,15 @@ As instruções do laboratório estão em português. Para alterar o idioma, pro
 <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem1.png" height='330'/>
 
 
-## Provisionar Jenkins no EC2 com CodePipeline e CloudFormation
+## Template CloudFormation
 
-1.	Crie uma pasta no seu projeto do VSCode chamada "lab3"
+1. Abra o Cloud9 no seu ambiente AWS.	
 
-2.	Na nova pasta (lab3) crie um template do CloudFormation chamado "ec2-jenkins.yaml"
+2. Crie uma pasta "lab3"
 
-3.	No template, provisione um Security Group que possibilita a conexão por SSH na instância EC2 (porta 22) e uma instância EC2 com as seguintes características (código a seguir):
+3.	Na nova pasta (lab3) crie um template do CloudFormation chamado "ec2-jenkins.yaml"
+
+4.	No template, provisione um Security Group que possibilita a conexão por SSH na instância EC2 (porta 22) e uma instância EC2 com as seguintes características (código a seguir):
 
   a.	Nome: ec2-jenkins
 
@@ -91,72 +93,115 @@ Resources:
 
 ```
 
-4.	Envie o código para seu repositório do Github da forma como fizemos em aula
+# Configurar Github
+
+Para o github fazer o deploy no CloudFormation é necessário cinfigurar as chaves de acesso a AWS no repositório
+
+1.  Na tela de iniciar o laborátio no AWS Academy, clique no botão `AWS Details`
+
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem19.png" height='200'/>
+
+2. Clique no botão `Show` para ver as credenciais de acesso. Elas serão utilizadas no github
+
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem20.png" height='200'/>
+
+3. Acesse o Github, crie uma conta (se ainda não tiver) e crie um repositório chamadoo `dataops-lab3`
+
+  * Veja o material de aula para revisar como criar uma conta no Github e como criar o repositório
+
+4. Abra o repositório `dataops-lab3` no Github e acesse a aba `Settings`
+
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem21.png" height='200'/>
+
+5. Clique em `Secrets and variables` e depois em `Actions` no menu lateral esquerdo
+
+6. Clique no botão `New repository secret`
+
+  6.1. Em `Name`, coloque `AWS_ACCESS_KEY_ID`
+
+  6.2. Em `Secret` coloque o valor do campo `aws_access_key_id` que está no AWS Academy (veja passos 1 e 2 dessas seção)
+
+  6.3. Clique em `Add secret`
+
+7. Faça o mesmo para os outros dois campos:
+
+  7.1. Name: `AWS_SECRET_ACCESS_KEY`;  Secret: valor de `aws_secret_access_key` no AWS Academy
+
+  7.2. Name: `AWS_SESSION_TOKEN`;  Secret: valor de `aws_session_token` no AWS Academy
+
+Você deve ver o seguinte resultado no Github
+
+
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem22.png" height='200'/>
+
+
+**IMPORTANTE**
+
+Essas credenciais mudam a cada vez que inicia o ambiente da AWS. Portanto, voc~e deve atualizá-las na tela anterior sempre que iniciar ambiente novamente.
+
+
+## Script Github Action
+
+1. Volte ao Cloud9 na AWS
+
+2. Na pasta `dataops-lab3` crie uma nova pasta chamada `.github` (preste atenção no ponto no início da pasta)
+
+3. Na pasta `.github` crie uma pasta `workflows`
+
+4. na pasta `workflows` clie um arquivo `actions.yml` e coloque o seguinte conteúdo:
+
+
+```yaml
+name: 'Deploy para AWS CloudFormation'
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fazer checkout da branch
+        uses: actions/checkout@v2
+
+      - name: Configurar AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: us-east-1
+
+      - name: Deploy no CloudFormation
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with: 
+          name: dataops-lab3
+          template: ec2-jenkins.yaml
+          parameter-overrides: "key=vockey,iamprofile=LabInstanceProfile"
+
+```
+
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem23.png" height='200'/>
+
+
+5. Pelo terminal do Cloud9, vincule a pasta `lab3` ao repositório `dataops-lab3`. Revise o material de aula para instruções de como fazer.
+
+7. Verifique se todos os arquivos estão salvos no Cloud9.
+
+6. Envie o código para seu repositório do Github da forma como fizemos em aula
 
   a.	Execute os comandos add, commit e push na branch develop
 
   b.	No Github faça o pull request e junte (merge) na branch main
 
-5.	No console AWS, procure e abra o serviço CodePipeline
+**OBS:** Será solicitado o usuário e senha do github. O usuário é o seu username definido quando criou a conta. A senha deve ser um personal access token. Veja como criar aqui: [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). Verifique se está criando o `Tokens (classic)`. Pode colocar todas as permissões. Guarde este token para utilizar posteriormente em outros laboratórios.
 
-<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem2.png" height='200'/>
- 
-6.	Clique em  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem3.png" height='20'/>             e depois faça a seguinte configuração:
+7. Ao fazer o pull request e juntar na branch `main`, a `action` configurada será executada. Você pode acompanhar a execução acessando a aba `Actions` no repositório do Github. Quano o pipeline terminar com sucesso, você verá a seguinte tela:
 
-  a.	"Nome do Pipeline": dataops-ec2-pipeline
+<img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem24.png" height='200'/>
 
-  b.	"Função de serviço": <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem4.png" height='20'/>
-
-  c.	"ARN da função": clique no campo de texto e escolha <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem5.png" height='20'/>. O número é o ID da sua conta e será diferente 
-
-  d.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem6.png" height='20'/>
-
-  e.	"Provedor de origem": GitHub (versão 1)	
-
-  f.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem7.png" height='20'/>
-
-  g.	Se já estiver autenticado no GitHub basca clicar em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem8.png" height='20'/> na janela aberta
-
-  h.	Se não estiver autenticado, faça o login no GitHub na janela aberta e depois clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem9.png" height='20'/>
-
-  i.	"Nome do repositório": dataops-lab3 (ou o repositório criado em aula)
-  
-  j.	"Nome da ramificação": main
-
-  k.	"Opções de detecção de alterações": Webhooks do GitHub (recomendado)
-
-  l.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem10.png" height='20'/>
-
-  m.	Em "Adicionar etapa de compilação" clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem11.png" height='20'/>
-  
-  n.	No popup, clique em  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem12.png" height='20'/>
-
-  o.	"Provedor da implantação": AWS CloudFormation
-
-  p.	"Modo de ação": "Criar ou atualizar uma pilha"
-
-  q.	"Nome da pilha": dataops-lab3
-
-  r.	"Nome do artefato": SourceArtifact
-
-  s.	"Nome do arquivo": ec2-jenkins.yaml
-
-  t.	"Nome da função": selecione LabRole
-
-  u.	Abra a opção Avançado e na caixa de texto coloque { "key": "vockey", "iamprofile": "LabInstanceProfile" }
-
-  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem13.png" height='150'/>
- 
-  v.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem14.png" height='20'/>
-
-  w.	Clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem15.png" height='20'/>
-  
-  x.	Aguarde o pipeline terminar a execução
-
-  <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem16.png" height='330'/>
-
-
-7.	O pipeline criado utiliza o arquivo ec2-jenkins.yaml que criamos no VSCode e fizemos o push o GitHub para provisionar os recursos do template
 
 8.	Acesse o Serviço do EC2 para ver a instância criada
  
@@ -174,7 +219,7 @@ Resources:
 
   d.	A instância não responde. É preciso adicionar a regra de entrada no Security Group para possibilitar o acesso a porta 8080
 
-10.	Volte ao arquivo "ec2-jenkins.yaml" do seu projeto no VSCode
+10.	Volte ao arquivo "ec2-jenkins.yaml" do seu projeto no Cloud9
 
 11.	Coloque uma nova regra de entrada na propriedade "SecurityGroupIngress" do Securi-tyGroup para possibilitar a conexão via HTTP na porta 8080, conforme exemplo abaixo (2 trechos entre ##### NOVO - INÍCIO ##### e ##### NOVO - FIM #####). Vamos aproveitar e criar um IP Elástico para a instância, assim quando a ins-tância for reiniciada o IP não vai mudar
 
@@ -253,7 +298,7 @@ Resources:
 
   a.	add, commit, push, pull request e merge
 
-13.	A atualização do arquivo no GitHub vai disparar a atualização do pipeline no CodePipeli-ne. Acesse o serviço do CodePipeline e verifique a atualização em andamento
+13.	A atualização do arquivo no GitHub vai disparar a execução do Github Actions para fazer o deploy no CloudFormation. Acesse o CloudFormation na AWS e verifique a atualização em andamento
 
 14.	Espere a finalização e tente acessar o Jenkins novamente pelo navegador. O IP continua o mesmo. O serviço deve funcionar
 
@@ -263,5 +308,5 @@ Resources:
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2023-04-12 23:35:41
+Last update: 2023-08-12 21:13:28
 </div>
