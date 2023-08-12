@@ -1,0 +1,28 @@
+name: 'Deploy para AWS CloudFormation'
+
+on:
+  push:
+    branches: [main]
+  workflow_dispatch:
+
+jobs:
+  deploy:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Fazer checkout da branch
+        uses: actions/checkout@v2
+
+      - name: Configurar AWS
+        uses: aws-actions/configure-aws-credentials@v1
+        with:
+          aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
+          aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
+          aws-session-token: ${{ secrets.AWS_SESSION_TOKEN }}
+          aws-region: us-east-1
+
+      - name: Deploy no CloudFormation
+        uses: aws-actions/aws-cloudformation-github-deploy@v1
+        with: 
+          name: dataops-lab3
+          template: ec2-jenkins.yaml
+          parameter-overrides: "key=vockey,iamprofile=LabInstanceProfile"
