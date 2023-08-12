@@ -84,7 +84,7 @@ Resources:
           #!/bin/bash -xe
           yum update –y
           wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-          rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+          rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
           yum upgrade -y
           amazon-linux-extras install java-openjdk11 -y
           sudo yum install jenkins -y
@@ -285,7 +285,7 @@ Resources:
           #!/bin/bash -xe
           yum update –y
           wget -O /etc/yum.repos.d/jenkins.repo https://pkg.jenkins.io/redhat-stable/jenkins.repo
-          rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io.key
+          rpm --import https://pkg.jenkins.io/redhat-stable/jenkins.io-2023.key
           yum upgrade -y
           amazon-linux-extras install java-openjdk11 -y
           sudo yum install jenkins -y
@@ -308,5 +308,5 @@ Resources:
     &copy; 2022 Fernando Sousa
     <br/>
     
-Last update: 2023-08-12 21:13:28
+Last update: 2023-08-12 21:18:23
 </div>
