@@ -305,8 +305,8 @@ Resources:
 
 
 <div class="footer">
-    &copy; 2022 Fernando Sousa
+    &copy; 2023 Fernando Sousa
     <br/>
     
-Last update: 2023-08-12 21:25:03
+Last update: 2023-08-12 21:26:22
 </div>
