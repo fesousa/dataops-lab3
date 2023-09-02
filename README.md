@@ -191,7 +191,7 @@ jobs:
 
     <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem25.png" width='100%'/>
 
-    b. caso não esteja vendo o terminal, clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem26.png" height='27'/> nessa na parte inferior da IDE e depois em `New Terminal`
+    b. caso não esteja vendo o terminal, clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem26.png" height='27'/> na parte inferior da IDE e depois em `New Terminal`
 
     <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem28.png" height='90'/>
 
@@ -199,7 +199,7 @@ jobs:
 6. Pelo terminal do Cloud9, vincule a pasta `lab3` ao repositório `dataops-lab3`. Revise o material de aula para instruções de como fazer.
 
 
-    a. Você deve estar na pasta `lab3` no terminal. Se você criou a pasta `lab3` conforme as instruções deste lab, basta digitar `cd lab3` no terminal para acessar a pasta. Vincule o git e envie os arquivos a partir daí
+    a. Você deve estar na pasta `lab3` no terminal para fazer isso. Se você criou a pasta `lab3` conforme as instruções deste lab, basta digitar `cd lab3` no terminal para acessar a pasta. Vincule o git e envie os arquivos a partir daí
 
 
      <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem26.png" width='100%'/>
@@ -325,5 +325,5 @@ Resources:
     &copy; 2023 Fernando Sousa
     <br/>
     
-Last update: 2023-09-02 12:49:36
+Last update: 2023-09-02 12:50:20
 </div>
