@@ -106,12 +106,29 @@ ${code/actions.yml}
 
 <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem23.png" width='100%'/>
 
+5. Identifique o terminal de linha de comando no CLou9
 
-5. Pelo terminal do Cloud9, vincule a pasta `lab3` ao repositório `dataops-lab3`. Revise o material de aula para instruções de como fazer.
+    a. O terminal de linha de comando fica na parte inferior da IDE.
+
+    <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem25.png" width='100%'/>
+
+    b. caso não esteja vendo o terminal, clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem26.png" height='27'/> nessa na parte inferior da IDE e depois em `New Terminal`
+
+    <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem28.png" height='90'/>
+
+
+6. Pelo terminal do Cloud9, vincule a pasta `lab3` ao repositório `dataops-lab3`. Revise o material de aula para instruções de como fazer.
+
+
+    a. Você deve estar na pasta `lab3` no terminal. Se você criou a pasta `lab3` conforme as instruções deste lab, basta digitar `cd lab3` no terminal para acessar a pasta. Vincule o git e envie os arquivos a partir daí
+
+
+     <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem26.png" width='100%'/>
+
 
 7. Verifique se todos os arquivos estão salvos no Cloud9.
 
-6. Envie o código para seu repositório do Github da forma como fizemos em aula
+8. Envie o código para seu repositório do Github da forma como fizemos em aula
 
     a.	Execute os comandos add, commit e push na branch develop
 
@@ -119,16 +136,16 @@ ${code/actions.yml}
 
 **OBS:** Será solicitado o usuário e senha do github. O usuário é o seu username definido quando criou a conta. A senha deve ser um personal access token. Veja como criar aqui: [https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens#creating-a-personal-access-token-classic). Verifique se está criando o `Tokens (classic)`. Pode colocar todas as permissões. Guarde este token para utilizar posteriormente em outros laboratórios.
 
-7. Ao fazer o pull request e juntar na branch `main`, a `action` configurada será executada. Você pode acompanhar a execução acessando a aba `Actions` no repositório do Github. Quano o pipeline terminar com sucesso, você verá a seguinte tela:
+9. Ao fazer o pull request e juntar na branch `main`, a `action` configurada será executada. Você pode acompanhar a execução acessando a aba `Actions` no repositório do Github. Quano o pipeline terminar com sucesso, você verá a seguinte tela:
 
 <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem24.png"width='100%'/>
 
 
-8.	Acesse o Serviço do EC2 para ver a instância criada
+10.	Acesse o Serviço do EC2 para ver a instância criada
  
 <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem17.png" height='120'/>
 
-9.	Verifique se a serviço do Jenkins está funcionando
+11.	Verifique se a serviço do Jenkins está funcionando
 
     a.	No painel do EC2, selecione a instância que foi criada clicando no checkbox
 
@@ -136,25 +153,25 @@ ${code/actions.yml}
   
     c.	Abra uma nova do navegador, cole o IP copiado e complete com a porta 8080. Pressione "Enter" para abrir o Jenkins
   
-  Por exemplo: 12.345.67.890:8080
+    Por exemplo: 12.345.67.890:8080
 
     d.	A instância não responde. É preciso adicionar a regra de entrada no Security Group para possibilitar o acesso a porta 8080
 
-10.	Volte ao arquivo "ec2-jenkins.yaml" do seu projeto no Cloud9
+12.	Volte ao arquivo "ec2-jenkins.yaml" do seu projeto no Cloud9
 
-11.	Coloque uma nova regra de entrada na propriedade "SecurityGroupIngress" do Securi-tyGroup para possibilitar a conexão via HTTP na porta 8080, conforme exemplo abaixo (2 trechos entre ##### NOVO - INÍCIO ##### e ##### NOVO - FIM #####). Vamos aproveitar e criar um IP Elástico para a instância, assim quando a ins-tância for reiniciada o IP não vai mudar
+13.	Coloque uma nova regra de entrada na propriedade "SecurityGroupIngress" do Securi-tyGroup para possibilitar a conexão via HTTP na porta 8080, conforme exemplo abaixo (2 trechos entre ##### NOVO - INÍCIO ##### e ##### NOVO - FIM #####). Vamos aproveitar e criar um IP Elástico para a instância, assim quando a ins-tância for reiniciada o IP não vai mudar
 
 ```yaml
 ${code/ec2-jenkins-p2.yaml}
 ```
 
-12.	Faça o push da atualização para o repositório do GitHub como feito anteriormente para atualizar o arquivo no repositório
+14.	Faça o push da atualização para o repositório do GitHub como feito anteriormente para atualizar o arquivo no repositório
 
   a.	add, commit, push, pull request e merge
 
-13.	A atualização do arquivo no GitHub vai disparar a execução do Github Actions para fazer o deploy no CloudFormation. Acesse o CloudFormation na AWS e verifique a atualização em andamento
+15.	A atualização do arquivo no GitHub vai disparar a execução do Github Actions para fazer o deploy no CloudFormation. Acesse o CloudFormation na AWS e verifique a atualização em andamento
 
-14.	Espere a finalização e tente acessar o Jenkins novamente pelo navegador. O IP continua o mesmo. O serviço deve funcionar
+16.	Espere a finalização e tente acessar o Jenkins novamente pelo navegador. O IP continua o mesmo. O serviço deve funcionar
 
 
 
