@@ -114,7 +114,7 @@ ${code/actions.yml}
 
     b. caso não esteja vendo o terminal, clique em <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem26.png" height='27'/> na parte inferior da IDE e depois em `New Terminal`
 
-    <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem27.png" height='150'/>
+    <img src="https://raw.github.com/fesousa/dataops-lab3/master/images/Imagem27.png" height='350'/>
 
 
 6. Pelo terminal do Cloud9, vincule a pasta `lab3` ao repositório `dataops-lab3`. Revise o material de aula para instruções de como fazer.
